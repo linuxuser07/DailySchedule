@@ -1,12 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ScheduleService } from './schedule.service';
-import { 
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { ScheduleService } from "./schedule.service";
+import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatFormFieldModule,
@@ -16,11 +16,11 @@ import {
   MatTooltipModule,
   MatToolbar,
   MatTable
-} from '@angular/material';
-import { TopBarComponent } from './top-bar/top-bar.component';
-import { SearchScheduleComponent } from './search-schedule/search-schedule.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ScheduleTableComponent } from './schedule-table/schedule-table.component';
+} from "@angular/material";
+import { TopBarComponent } from "./top-bar/top-bar.component";
+import { SearchScheduleComponent } from "./search-schedule/search-schedule.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ScheduleTableComponent } from "./schedule-table/schedule-table.component";
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { ScheduleTableComponent } from './schedule-table/schedule-table.componen
     SearchScheduleComponent,
     MatToolbar,
     MatTable,
-    ScheduleTableComponent,
+    ScheduleTableComponent
   ],
   imports: [
     BrowserModule,
@@ -41,14 +41,12 @@ import { ScheduleTableComponent } from './schedule-table/schedule-table.componen
     MatRippleModule,
     MatButtonModule,
     MatTooltipModule,
-    
+
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [
-    ScheduleService
-  ],
+  providers: [ScheduleService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

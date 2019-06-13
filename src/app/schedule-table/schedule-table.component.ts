@@ -1,6 +1,13 @@
-import { Component, OnInit, Input, SimpleChange, ViewChild, ElementRef } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Input,
+  SimpleChange,
+  ViewChild,
+  ElementRef
+} from "@angular/core";
 import { Schedule } from "../schedule";
-import * as XLSX from 'xlsx';
+import * as XLSX from "xlsx";
 
 @Component({
   selector: "app-schedule-table",
@@ -8,8 +15,7 @@ import * as XLSX from 'xlsx';
   styleUrls: ["./schedule-table.component.css"]
 })
 export class ScheduleTableComponent implements OnInit {
-  
-  @ViewChild('TABLE', {static: false}) table: ElementRef;
+  @ViewChild("TABLE", { static: false }) table: ElementRef;
 
   showTable: Boolean;
   weekDays = [];
@@ -37,9 +43,9 @@ export class ScheduleTableComponent implements OnInit {
   ngOnInit() {
     this.showTable = true;
     this.getDatesOfWeek(this.day);
-    
-    //console.log(this.day)
   }
+  //Checking for changes if the value was change or something changes on dates
+  //calling the missing days function.
   ngOnChanges(changeRecord: SimpleChange) {
     this.missingDays = [];
     this.weekDays = [];
@@ -48,7 +54,7 @@ export class ScheduleTableComponent implements OnInit {
     this.getDatesOfWeek(currentDate);
     console.log(this.weekDays);
   }
-
+  //Gets dates of the week on a MM/DD format
   getDatesOfWeek(day: Date) {
     let result = new Date(day);
     let month = result.getMonth() + 1;
@@ -64,7 +70,7 @@ export class ScheduleTableComponent implements OnInit {
       this.weekDays.push(mad);
     }
   }
-
+  //Checks to see what days people are off.
   dayOff() {
     var schedule = this.schedules;
     let dot = [0, 0, 0, 0, 0, 0];
@@ -118,14 +124,15 @@ export class ScheduleTableComponent implements OnInit {
       this.dayOff();
     }
   }
-  ExportTOExcel()
-{
-  const ws: XLSX.WorkSheet=XLSX.utils.table_to_sheet(this.table.nativeElement);
-  const wb: XLSX.WorkBook = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-  
-  /* save to file */
-  XLSX.writeFile(wb, 'DailyScheule.xlsx');
-  
-}
+  //Exports to Excel
+  ExportTOExcel() {
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(
+      this.table.nativeElement
+    );
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+
+    /* save to file */
+    XLSX.writeFile(wb, "DailyScheule.xlsx");
+  }
 }

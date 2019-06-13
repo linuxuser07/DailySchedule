@@ -16,7 +16,7 @@ export class SearchScheduleComponent implements OnInit {
   selectedFacility;
   selectedDay: Date;
   myDate = new Date();
-  
+
   constructor(private scheduleService: ScheduleService) {}
 
   ngOnInit() {
@@ -42,9 +42,9 @@ export class SearchScheduleComponent implements OnInit {
     var day = myDate.getDay();
     return day === 1;
   }
-  //gettting the schedules from api 
+  //gettting the schedules from api
   getSchedules() {
-    this.showTable= true;
+    this.showTable = true;
     this.showRefresh = true;
     if (this.selectedFacility !== "" && this.myDate.getDay() === 1) {
       this.selectedDay = this.myDate;
@@ -59,11 +59,10 @@ export class SearchScheduleComponent implements OnInit {
         );
     }
   }
-
+  //refresh will set to the beginning state.
   refresh() {
     this.showRefresh = false;
     this.showTable = false;
-    this.selectedFacility = '';
-  
+    this.selectedFacility = "";
   }
 }

@@ -35,21 +35,21 @@
     </button>
   </div>
   <div style="padding-left: 50px" *ngIf="showRefresh">
-      <button
-        *ngIf="selectedFacility !== null"
-        (click)="refresh()"
-        style="margin-bottom: 15px; margin-left: 15px;background-color: #146dfc"
-        mat-raised-button
-        matTooltip="Get the schedules of employees"
-      >
-        Refresh
-      </button>
-    </div>
-<div style="margin: auto; width: 90%"*ngIf="showTable">
-  <!-- passing the values from parent to child component, the selected day and schedules-->
-  <app-schedule-table
-    [schedules]="schedules"
-    [selectedDay]="selectedDay"
-  ></app-schedule-table>
-</div>
+    <button
+      *ngIf="selectedFacility !== null"
+      (click)="refresh()"
+      style="margin-bottom: 15px; margin-left: 15px;background-color: #146dfc"
+      mat-raised-button
+      matTooltip="Get the schedules of employees"
+    >
+      Refresh
+    </button>
+  </div>
+  <div style="margin: auto; width: 90%" *ngIf="showTable">
+    <!-- passing the values from parent to child component, the selected day and schedules-->
+    <app-schedule-table
+      [schedules]="schedules"
+      [selectedDay]="selectedDay"
+    ></app-schedule-table>
+  </div>
 </div>

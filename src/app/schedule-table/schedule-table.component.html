@@ -1,9 +1,9 @@
 <!-- first table to display the schedules-->
 
-<div >
+<div>
   <div class="export-button">
-      <i class="material-icons">description</i>
-      <button
+    <i class="material-icons">description</i>
+    <button
       *ngIf="selectedFacility !== null"
       (click)="ExportTOExcel()"
       style="margin-bottom: 15px; margin-left: 15px;background-color: #146dfc"
@@ -13,47 +13,49 @@
       Export
     </button>
   </div>
-  <div  #TABLE>
+  <div #TABLE>
     <div>
-  <table class="table">
-    <thead>
-      <td scope="col">Name</td>
-      <td>Position</td>
-      <td>Monday {{ weekDays[0] }}</td>
-      <td>Tuesday {{ weekDays[1] }}</td>
-      <td>Wednesday {{ weekDays[2] }}</td>
-      <td>Thursday {{ weekDays[3] }}</td>
-      <td>Friday {{ weekDays[4] }}</td>
-      <td>Saturday {{ weekDays[5] }}</td>
-      <td>Sunday {{ weekDays[6] }}</td>
-    </thead>
-    <tbody>
-      <tr *ngFor="let schedule of schedules">
-        <td>{{ schedule.teammateName }}</td>
-        <td>{{ schedule.teammateType }}</td>
-        <td>{{ schedule.monday }}</td>
-        <td>{{ schedule.tuesday }}</td>
-        <td>{{ schedule.wednesday }}</td>
-        <td>{{ schedule.thursday }}</td>
-        <td>{{ schedule.friday }}</td>
-        <td>{{ schedule.saturday }}</td>
-        <td>{{ schedule.sunday }}</td>
-      </tr>
-    </tbody>
-    <div></div>
-  </table>
+      <table class="table" #table>
+        <thead>
+          <td>Name</td>
+          <td>Position</td>
+          <td>Monday {{ weekDays[0] }}</td>
+          <td>Tuesday {{ weekDays[1] }}</td>
+          <td>Wednesday {{ weekDays[2] }}</td>
+          <td>Thursday {{ weekDays[3] }}</td>
+          <td>Friday {{ weekDays[4] }}</td>
+          <td>Saturday {{ weekDays[5] }}</td>
+          <td>Sunday {{ weekDays[6] }}</td>
+        </thead>
+        <tbody>
+          <tr *ngFor="let schedule of schedules">
+            <td>{{ schedule.teammateName }}</td>
+            <td>{{ schedule.teammateType }}</td>
+            <td>{{ schedule.monday }}</td>
+            <td>{{ schedule.tuesday }}</td>
+            <td>{{ schedule.wednesday }}</td>
+            <td>{{ schedule.thursday }}</td>
+            <td>{{ schedule.friday }}</td>
+            <td>{{ schedule.saturday }}</td>
+            <td>{{ schedule.sunday }}</td>
+          </tr>
+        </tbody>
+        <div></div>
+      </table>
+    </div>
   </div>
-</div>
 </div>
 <div id="second-table">
-    <table class="table2">
-      <thead >
-        <td><strong>Not enough Anesthisia People during this days:</strong></td>
-      </thead>
-      <tbody>
-        <tr *ngFor="let people of missingDays" >
-          <td><strong>{{people.Day}} </strong></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <table class="table2">
+    <thead>
+      <td><strong>Not enough Anesthisia People during this days:</strong></td>
+    </thead>
+    <tbody>
+      <tr *ngFor="let people of missingDays">
+        <td>
+          <strong>{{ people.Day }} </strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
