@@ -1,0 +1,46 @@
+.export-button {
+  text-align: right;
+  width: 70%;
+  margin-bottom: 10px;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 75%;
+}
+
+.table td,
+th {
+  border: 1px solid rgb(170, 161, 161);
+  padding: 8px;
+}
+
+.table tr:nth-child(even) {
+  background-color: lightslategray;
+}
+.table thead {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: lightgray;
+  color: black;
+}
+
+.table2 {
+  border: 4px solid lightcoral;
+  border-collapse: collapse;
+  width: 75%;
+}
+
+.table2 td,
+th {
+  padding: 8px;
+  text-align: center;
+  background-color: lightgray;
+}
+.table2 tbody {
+  background-color: lightgray;
+}
+#second-table {
+  padding-top: 20px;
+}

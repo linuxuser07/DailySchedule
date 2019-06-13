@@ -1,0 +1,55 @@
+<div class="container">
+  <div id="facility-select" style="padding: 20px 0px 20px 50px">
+    <label style="margin-right: 20px"><strong>Facility Name: </strong></label>
+    <select [(ngModel)]="selectedFacility">
+      <option *ngFor="let facility of facilities" [value]="facility.facilityId">
+        {{ facility.facilityName }} ({{ facility.facilityId }})</option
+      >
+    </select>
+  </div>
+
+  <div id="dayPicker" style="padding-left: 50px">
+    <label style="margin-right: 5px"><strong>Week Start Date:</strong> </label>
+    <!--date picker with filter date to only allow monday to be clicked -->
+    <mat-form-field>
+      <input
+        matInput
+        [matDatepickerFilter]="onlyMonday"
+        [matDatepicker]="picker"
+        [(ngModel)]="myDate"
+        placeholder="Choose a date"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div style="padding-left: 50px" *ngIf="!showRefresh">
+    <button
+      *ngIf="selectedFacility !== null"
+      (click)="getSchedules()"
+      style="margin-bottom: 15px; margin-left: 15px;background-color: #146dfc"
+      mat-raised-button
+      matTooltip="Get the schedules of employees"
+    >
+      view Schedule
+    </button>
+  </div>
+  <div style="padding-left: 50px" *ngIf="showRefresh">
+      <button
+        *ngIf="selectedFacility !== null"
+        (click)="refresh()"
+        style="margin-bottom: 15px; margin-left: 15px;background-color: #146dfc"
+        mat-raised-button
+        matTooltip="Get the schedules of employees"
+      >
+        Refresh
+      </button>
+    </div>
+<div style="margin: auto; width: 90%"*ngIf="showTable">
+  <!-- passing the values from parent to child component, the selected day and schedules-->
+  <app-schedule-table
+    [schedules]="schedules"
+    [selectedDay]="selectedDay"
+  ></app-schedule-table>
+</div>
+</div>
